@@ -1,4 +1,4 @@
-package java.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
 
@@ -22,11 +23,11 @@ public class PageBase {
     }
     public  WebDriverWait expwait(){
         WebDriverWait wait;
-        wait = new WebDriverWait(driver,Duration.ofSeconds(90));
+        wait = new WebDriverWait(driver,Duration.ofSeconds(50));
         return wait;
     }
     public void impwait(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 
     }
     public PageBase insertText(By locator,String text){
@@ -56,6 +57,10 @@ public class PageBase {
         });
 
         return element;
+    }
+    public ArrayList<String> arrylist() {
+        ArrayList<String> Tabs = new ArrayList<>(driver.getWindowHandles());
+        return Tabs;
     }
 
     }
