@@ -1,6 +1,7 @@
 package testClasses;
 
 import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -34,7 +35,7 @@ public class HomePageTests {
         homePage.AddGuests();
         Thread.sleep(5000);
        softAssert.assertTrue(homePage.getGovernorateHeader());
-       softAssert.assertTrue(homePage.getDateHeader());
+       softAssert.assertTrue(homePage.getDateHeader("nov 6 – 13"));
        softAssert.assertTrue(homePage.getResults());
 
       softAssert.assertAll();
@@ -44,4 +45,5 @@ public class HomePageTests {
         Thread.sleep(10000);
      driver.quit();
      }
+
 }

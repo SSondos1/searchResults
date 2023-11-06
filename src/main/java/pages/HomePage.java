@@ -57,7 +57,9 @@ public class HomePage extends PageBase {
         new HomePage(driver);
     }
 
-    public void SelectCheckoutDateInDifferentMonths(int Days) {
+
+
+    public HomePage SelectCheckoutDateInDifferentMonths(int Days) {
         impwait();
         String localDate3 = LocalDate.now().plusDays(Days).format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
         var checkOutDay2 = By.cssSelector("[data-testid=\"calendar-day-" + localDate3);
@@ -100,7 +102,7 @@ public class HomePage extends PageBase {
             driver.findElement(rightRow).click();
         }
         driver.findElement(checkOutDay2).click();
-        new HomePage(driver);
+       return new HomePage(driver);
     }
 
     public void AddGuests() {
@@ -117,10 +119,12 @@ public class HomePage extends PageBase {
        return driver.findElement(headerGovernorate).getText().toLowerCase().contains("cairo");
     }
 
-    public boolean getDateHeader (){
-        return driver.findElement(headerDate).getText().toLowerCase().contains("nov 5 – 12");
+    public boolean getDateHeader (String Date){
+
+        return driver.findElement(headerDate).getText().toLowerCase().contains(Date);
     }
     public boolean getResults (){
+
         return driver.findElement(results).isDisplayed();
     }
 }
